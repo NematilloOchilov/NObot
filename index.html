@@ -1,79 +1,29 @@
+<!-- form.html -->
 <!DOCTYPE html>
-<html lang="uz">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buyurtma formasi</title>
+    <title>Archa buyurtma formasi</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            background: #f4f4f4;
-        }
-
-        h2 {
-            text-align: center;
-            color: #333;
-        }
-
-        input, button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-        }
-
-        button {
-            background-color: #2481cc;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #1867a3;
-        }
-    </style>
 </head>
 <body>
-    <h2>🛒 Buyurtma formasi</h2>
-
-    <label for="name">Ismingiz:</label>
-    <input type="text" id="name" placeholder="Ismingizni kiriting">
-
-    <label for="phone">Telefon raqamingiz:</label>
-    <input type="tel" id="phone" placeholder="+99890...">
-
-    <label for="product">Mahsulot nomi:</label>
-    <input type="text" id="product" placeholder="Masalan: Moviy kiparis">
-
-    <button onclick="submitForm()">📨 Yuborish</button>
+    <h2>Ismingiz:</h2>
+    <input type="text" id="name">
+    
+    <h2>Telefon raqamingiz:</h2>
+    <input type="text" id="phone">
+    
+    <button onclick="submitForm()">Yuborish</button>
 
     <script>
         const tg = window.Telegram.WebApp;
-        tg.expand();  // sahifani to‘liq ochadi
+        tg.expand();
 
         function submitForm() {
             const name = document.getElementById("name").value;
             const phone = document.getElementById("phone").value;
-            const product = document.getElementById("product").value;
 
-            if (!name || !phone || !product) {
-                alert("Iltimos, barcha maydonlarni to‘ldiring!");
-                return;
-            }
-
-            const data = {
-                name: name,
-                phone: phone,
-                product: product
-            };
-
-            // Telegram botga JSON ma’lumot yuboriladi
-            tg.sendData(JSON.stringify(data));
+            const data = { name, phone };
+            tg.sendData(JSON.stringify(data)); // Botga yuborish
         }
     </script>
 </body>
