@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Buyurtma formasi</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <h2>Buyurtma</h2>
+  <input type="text" id="name" placeholder="Ismingiz"><br><br>
+  <input type="text" id="phone" placeholder="Telefon raqam"><br><br>
+  <button onclick="sendData()">Yuborish</button>
+
 <script>
   function sendData() {
     const name = document.getElementById("name").value;
@@ -11,3 +23,8 @@
     Telegram.WebApp.close(); // ixtiyoriy
   }
 </script>
+</body>
+</html>
+
+
+
